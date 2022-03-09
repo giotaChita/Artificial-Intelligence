@@ -6,6 +6,7 @@ import random
 import time
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def newtonF(x,a,b,c):
     x=x-(3*a*x*x+2*b*x+c)/(6*a*x+2*b)
@@ -20,6 +21,7 @@ def newtonG(x,a,b):
 def gradF(x,a,b,c,learn_rate = 0.168):
     dk = - (3*a*x*x +2*b*x + c)
     x_new = x + learn_rate * dk
+    print(x_new)
     return x_new
 
 def gradG(x,a,b,learn_rate=0.168):
@@ -73,9 +75,18 @@ if (meth == '1'):
                 x = int(x)
             if (stco == '1'):
                 tt = t
+                x_array = []
                 while (tt > 0):
                     tt = tt - 1
+                    x_array.append(x)
                     x = gradF(x, a, b, c)
+                x_array.append(x)
+                plt.figure(figsize=(8,6))
+                plt.scatter(range(len(x_array)),x_array, marker = 'o', color='red')
+                plt.ylabel("x*")
+                plt.xlabel("iterations")
+                plt.show()
+
             if (stco == '2'):
                 dv = input('Give desired value: ')
                 dv = int(dv);
@@ -145,7 +156,7 @@ if (meth == '1'):
             x = ans[0]
             val = funG(x, a, b, c)
             print(x, val)
- 
+
         else:
             ans = np.array(ans)
             m = np.mean(ans, axis=0)
