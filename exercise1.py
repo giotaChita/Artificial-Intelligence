@@ -73,15 +73,6 @@ def plot_f(a, b, c, d, xmin):
     plt.show()
 
 
-'''
-def plot3D_f(a, b, c, d):
-    fig = plt.figure()
-    ax = plt.axes(projection='3d')
-    x = np.linspace(-5, 5, 100)
-    y = a*x**3+b*x**2+c*x+d
-    z = np.linspace(-5, 5, 100)
-    ax.plot3D(x,y,z,'gray')
-'''
 type_func = input('Choose function type (1 for F(x), 2 for G(x)): ')
 meth = input('Choose minimization method (1 for Gradient Descent, 2 for Newtons method): ')
 bare = input('Do you want batch/restart mode? (1 for yes, 0 for no): ')
@@ -138,7 +129,7 @@ if meth == '1':
 
             if stco == '2':
                 dv = input('Give desired value: ')
-                dv = int(dv);
+                dv = int(dv)
                 while (a * pow(x, 3) + b * x * x + c * x + d) > dv:
                     x_array.append(x)
                     x = gradient_f(x, a, b, c)
@@ -155,17 +146,10 @@ if meth == '1':
                 ct = input('Give computational time (in seconds): ')
                 ct = int(ct)
                 start_time = time.perf_counter()
-                while time.perf_counter() - start_time < ct:
+                while (time.perf_counter() - start_time) < ct:
                     x_array.append(x)
                     x = gradient_f(x, a, b, c)
                 x_array.append(x)
-                # plt.figure(figsize=(8, 6))
-                # plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                # plt.ylabel("x*")
-                # plt.xlabel("iterations")
-                # plt.title("Iterations-Xmin")
-                # plt.show()
-                # plot_f(a, b, c, d, x_array)
                 x_array = []
 
             ans.append(x)
@@ -206,45 +190,20 @@ if meth == '1':
                 tt = t
                 while tt > 0:
                     tt = tt - 1
-                    x_array.append(x)
                     x = gradient_g(x, a, b)
-                x_array.append(x)
-                plt.figure(figsize=(8, 6))
-                plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                plt.ylabel("x*")
-                plt.xlabel("iterations")
-                plt.title("Iterations-Xmin")
-                plt.show()
-                x_array = []
             if stco == '2':
                 dv = input('Give desired value: ')
                 dv = int(dv)
                 while fun_g(x, a, b, c) > dv:
-                    x_array.append(x)
                     x = gradient_g(x, a, b)
-                x_array.append(x)
-                plt.figure(figsize=(8, 6))
-                plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                plt.ylabel("x*")
-                plt.xlabel("iterations")
-                plt.title("Iterations-Xmin")
-                plt.show()
-                x_array = []
+
             if stco == '3':
                 ct = input('Give computational time (in seconds): ')
                 ct = int(ct)
                 start_time = time.perf_counter()
-                while time.perf_counter() - start_time < ct:
-                    x_array.append(x)
+                while (time.perf_counter() - start_time) < ct:
                     x = gradient_g(x, a, b)
-                x_array.append(x)
-                # plt.figure(figsize=(8, 6))
-                # plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                # plt.ylabel("x*")
-                # plt.xlabel("iterations")
-                # plt.title("Iterations-Xmin")
-                # plt.show()
-                x_array = []
+
             ans.append(x)
 
         if len(ans) == 1:
@@ -308,17 +267,10 @@ if meth == '2':
                 ct = int(ct)
                 start_time = time.perf_counter()
 
-                while time.perf_counter() - start_time < ct:
+                while (time.perf_counter() - start_time) < ct:
                     x_array.append(x)
                     x = newton_f(x, a, b, c)
                 x_array.append(x)
-                # plt.figure(figsize=(8, 6))
-                # plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                # plt.ylabel("x*")
-                # plt.xlabel("iterations")
-                # plt.title("Iterations-Xmin")
-                # plt.show()
-                # plot_f(a, b, c, d, x_array)
                 x_array = []
             ans.append(x)
 
@@ -358,45 +310,18 @@ if meth == '2':
                 tt = t
                 while tt > 0:
                     tt = tt - 1
-                    x_array.append(x)
                     x = newton_g(x, a, b)
-                x_array.append(x)
-                plt.figure(figsize=(8, 6))
-                plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                plt.ylabel("x*")
-                plt.xlabel("iterations")
-                plt.title("Iterations-Xmin")
-                plt.show()
-                x_array = []
             if stco == '2':
                 dv = input('Give desired value: ')
                 dv = int(dv);
                 while fun_g(x, a, b, c) > dv:
-                    x_array.append(x)
                     x = newton_g(x, a, b)
-                x_array.append(x)
-                plt.figure(figsize=(8, 6))
-                plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                plt.ylabel("x*")
-                plt.xlabel("iterations")
-                plt.title("Iterations-Xmin")
-                plt.show()
-                x_array = []
             if stco == '3':
                 ct = input('Give computational time (in seconds): ')
                 ct = int(ct)
                 start_time = time.perf_counter()
-                while time.perf_counter() - start_time < ct:
-                    x_array.append(x)
+                while (time.perf_counter() - start_time) < ct:
                     x = newton_g(x, a, b)
-                x_array.append(x)
-                # plt.figure(figsize=(8, 6))
-                # plt.scatter(range(len(x_array)), x_array, marker='o', color='red')
-                # plt.ylabel("x*")
-                # plt.xlabel("iterations")
-                # plt.title("Iterations-Xmin")
-                # plt.show()
-                x_array = []
 
             ans.append(x)
 
