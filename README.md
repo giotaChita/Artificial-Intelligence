@@ -1,9 +1,15 @@
 # Artificial-Intelligence
 
+Optimization techniques to minimize or maximize functions 
 
-### Gradient Descent , Netwon 
+### TASK 1
 
-Optimization techniques applied to F and G functions 
+Methods:
+  - Gradient Descent ,
+  - Netwon's  
 
-### Task2: genetic algorithm
+### TASK 2
 
+Method:
+ - genetic algorithm
+  
