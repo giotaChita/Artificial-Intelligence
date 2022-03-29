@@ -12,4 +12,7 @@ Methods:
 
 Method:
  - genetic algorithm
-  
+ 
+### TASK 3
+
+Creating tic tac toe game with the aid of minimax algorithm with alpha-beta pruning
