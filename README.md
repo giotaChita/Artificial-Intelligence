@@ -16,3 +16,10 @@ Method:
 ### TASK 3
 
 Creating tic tac toe game with the aid of minimax algorithm with alpha-beta pruning
+
+### TASK 4
+
+classification with two methods for identifying DDoS attack packages:
+  - SVM
+  - Tree Decision
+ 
