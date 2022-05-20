@@ -23,3 +23,7 @@ classification with two methods for identifying DDoS attack packages:
   - SVM
   - Tree Decision
  
+### TASK 5
+
+Create neural network for classification of Arabic Handwritten characters. 
+Using keras, tensorFlow 
